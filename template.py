@@ -27,4 +27,4 @@ while(): # Repetición del juego
         #Tu código va acá
     while(): # Turno del crupier
     	#Tu código va acá
-# hola probando
+# hola probando hola
