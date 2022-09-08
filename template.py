@@ -58,7 +58,7 @@ while comienzo == 'si':
             if crupier > 21:
                 cuantocrupier = print('El Crupier se pasó de 21. Felicitaciones, ganaste.')
             
-
+        #actualizacion del saldo
         if (usuario <= 21) and (usuario > crupier) or (crupier > 21) and (usuario <= 21):
             banco = banco + int(apuestapregunta)
             print(f'Ganaste, ahora tu saldo es de ${banco}')
@@ -69,35 +69,3 @@ while comienzo == 'si':
 
     else:
         print(f'SALDO INSUFICIENTE, TU SALDO ES {banco}')
-
-
-    # while (usuario<= 21) and (usuario>crupier):
-    #     print('GANASTE')
-
-        #     if sum(lista) > 21:
-        #         print('PERDISTE')
-        #     elif sum(lista) <= 21 and sum(lista) > crupier:
-        #         print('GANASTE')
-        # while cartapregunta == 'no':
-
- 
-
-    # elif apuestapregunta == 'si':
-    #     pregunta3 = int(input('Cuanto queres apostar?: '))
-    #     if pregunta3 <= 500:
-    #         apuesta = banco - pregunta3
-    #         cartapregunta = input('Queres otra carta?: ')
-    #         usuario2 = randint(1,10)
-    #         lista = [usuario, usuario2]
-    #         print(f'Tus cartas son: {usuario} y {usuario2}, la suma total es:', sum(lista))
-    #         cartapregunta2 = input('Queres otra carta?: ')
-    #     if cartapregunta2 == 'si':
-    #         usuario3 = randint(1,10)
-    #         lista.append(usuario3)
-    #         print(f'Tus cartas son: {usuario}, {usuario2} y {usuario3}. La suma total es:', sum(lista))
-    #         if sum(lista) > 21:
-    #             print('Perdiste')
-    # else:
-    #     print(f'Saldo insuficiente. Tu saldo actual es {banco}')
-
-
