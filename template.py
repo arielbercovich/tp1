@@ -22,49 +22,52 @@ def sacar_carta():
 usuario = sacar_carta()
 crupier = sacar_carta()
 banco = 500
-mazo = sacar_carta()
+cartas = sacar_carta()
 comienzo = input('BIENVENIDO AL CASINO. QUERES ARRANCAR?: ')
 while comienzo == 'si': 
     print(f'Crupier: {crupier} | Usuario: {usuario}.')
     # apuesta:
     apuestapregunta = (input)('Cuanto queres apostar?: ')
-    if int(apuestapregunta)  < banco:
+    if int(apuestapregunta)  <= banco:
 
         # pedido de cartas usuario:
         cartapregunta = input('Queres otra carta?: ')
         if cartapregunta == 'si':
             while (usuario <= 21) and (cartapregunta == 'si'):
-                mazo = sacar_carta()
-                usuario = usuario + mazo
-                print(f'Nueva carta: {mazo}. Total Usuario: {usuario}')
+                cartas = sacar_carta()
+                usuario = usuario + cartas
+                print(f'Nueva carta: {cartas}. Total Usuario: {usuario}')
                 if usuario < 21:
                     cartapregunta = input('Queres pedir otra carta?: ')
             while (usuario == 21) and (usuario != crupier):
                 print('Felicitaciones! Ganaste.')
-            if usuario > 21:
-                print('Perdiste! Te pasaste de 21')
+            if (usuario > 21) or (usuario <= crupier):
+                print('Perdiste!')
             elif (cartapregunta == 'no'):
                 print(f'Te plantaste en {usuario}')
         else:
             print(f'Te plantaste en {usuario}')
         
         # pedido de cartas crupier:
-        mazo = sacar_carta()
-        crupier = crupier + mazo
+        cartas = sacar_carta()
+        crupier = crupier + cartas
         while (crupier < 16) or (crupier < 21) and (usuario > crupier):
-            mazo = sacar_carta()
-            crupier = crupier + mazo
-            cuantocrupier = print(f'Nueva carta: {mazo}. Total Crupier: {crupier}')
+            cartas = sacar_carta()
+            crupier = crupier + cartas
+            cuantocrupier = print(f'Nueva carta: {cartas}. Total Crupier: {crupier}')
             if crupier > 21:
                 cuantocrupier = print('El Crupier se pasó de 21. Felicitaciones, ganaste.')
+            elif (crupier <= 21) and (usuario < crupier):
+                cuantocrupier = print('Gana el Crupier')
             
         #actualizacion del saldo
         if (usuario <= 21) and (usuario > crupier) or (crupier > 21) and (usuario <= 21):
             banco = banco + int(apuestapregunta)
-            print(f'Ganaste, ahora tu saldo es de ${banco}')
+            print(f'Ahora tu saldo es de ${banco}')
         elif (usuario > 21) or (crupier > usuario):
             banco = banco - int(apuestapregunta)
-            print(f'Perdiste, ahora tu saldo es de ${banco}')
+            print(f'Ahora tu saldo es de ${banco}')
+
 
 
     else:
